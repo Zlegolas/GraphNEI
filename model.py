@@ -1,6 +1,3 @@
-# -*- coding:utf-8 -*-
-# @FileName  :model.py
-# @Author    :Yin Yi
 from torch_geometric.nn import MessagePassing
 import networkx as nx
 from torch_geometric.utils import to_networkx

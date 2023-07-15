@@ -1,6 +1,3 @@
-# -*- coding:utf-8 -*-
-# @FileName  :training.py
-# @Author    :Yin Yi
 from model import GraphNEI
 from MyDataset import MyDataset
 from torch_geometric.data import DataLoader
