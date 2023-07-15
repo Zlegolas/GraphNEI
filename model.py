@@ -19,14 +19,11 @@ class GraphNEI(MessagePassing):
     def forward(self, data):
         feat = data.x
         edge_index = data.edge_index
-        # 计算注意力矩阵
         attw = self.attention(feat)
         graph = to_networkx(data)
-        # 计算接近中心性
         closeness_centrality = nx.closeness_centrality(graph)
         re=[]
         for index, node in enumerate(feat):
-            # 遍历邻居集合
             index_neiighbors = self.getNeighbors(index, edge_index)
             node_feat = []
             for i in index_neiighbors:
@@ -42,7 +39,6 @@ class GraphNEI(MessagePassing):
             res=torch.tensor(res,dtype=torch.float32)
             NW=self.p1*attw[index]+self.p2*closeness_centrality+self.p3*res
             top_values, top_indices = torch.topk(NW, k=10)
-            # gengxin
             for i in top_indices:
                 feat[index]=feat[index]+feat[i]
             soft=self.l(feat[index])

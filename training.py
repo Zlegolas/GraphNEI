@@ -13,7 +13,7 @@ model.train()
 for i in range(150):
     for index, graph in enumerate(dataloader):
         graph, y = graph
-        optimizer.zero_grad()  # 优化器清零
+        optimizer.zero_grad()
         outputs = model(graph)
         loss.backward()
         optimizer.step()

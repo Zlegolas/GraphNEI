@@ -25,9 +25,6 @@ class IPinf():
         self.lable=lable
 
 
-# def iidcheck(ip):
-#     if "::" in ip:
-
 
 def getListIP() -> list:
     result = []
@@ -46,7 +43,6 @@ def getListIP() -> list:
             speed_ICMP = elems[9]
             os = elems[10]
             cves = elems[11]
-            # 匿名节点的向量处理方式
             lable = elems[12]
             if '*' in ip:
                 vector = torch.zeros([1, 169], dtype=torch.float32)
@@ -161,7 +157,6 @@ def getListIP() -> list:
 
 
 def getGrpah():
-    # 得到划分完成的子图
     feats = getListIP()
     graph = nx.Graph()
     for node in feats:
