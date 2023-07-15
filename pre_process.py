@@ -1,7 +1,3 @@
-# -*- coding:utf-8 -*-
-# @FileName  :pre_process.py
-# @Author    :Yin Yi
-from torch_geometric.data import Data
 import torch
 import networkx as nx
 import leidenalg as la

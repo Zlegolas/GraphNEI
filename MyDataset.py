@@ -1,6 +1,3 @@
-# -*- coding:utf-8 -*-
-# @FileName  :MyDataset.py
-# @Author    :Yin Yi
 from torch_geometric.data import Dataset,Data
 import torch
 
@@ -24,4 +21,4 @@ class MyDataset(Dataset):
 
     def __getitem__(self, index):
         data = self.dataset[index]
-        return data
+        return data,data.y
